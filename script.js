@@ -70,15 +70,15 @@ function displayBook(){
 }
 
 const revealForm = document.getElementById('test');
-const bookForm = document.getElementById("bookDialog");
-const submitButton=document.getElementById("SubmitButton");
+const bookForm = document.getElementById("formModal");
+const formForBook = document.getElementById("bookForm");
+const submitButton=document.getElementById("submitButton");
 
 revealForm.addEventListener("click", ()=>{
-    bookForm.showModal();
+    bookForm.classList.remove("hide");
 } )
 
-submitButton.addEventListener("click", ()=>{
-    bookForm.classList.remove("reveal");
+formForBook.addEventListener("submit", ()=>{
     bookForm.classList.add("hide");
 
 } )
