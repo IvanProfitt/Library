@@ -1,4 +1,6 @@
 const myLibrary=[];
+let counter=0;
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 
 
 function Book(title, author, pageNum, read) {
@@ -6,6 +8,11 @@ function Book(title, author, pageNum, read) {
     this.author=author;
     this.pageNum=pageNum;
     this.read=read;
+
+
+    function returnTitle(){
+        return this.title;
+    }
 
 
     this.info=function(){
@@ -19,6 +26,8 @@ function Book(title, author, pageNum, read) {
 
     }
     addBookToLibrary(this);
+    displayBook();
+    counter=counter+1;
 }
 
 function addBookToLibrary(newBook){
@@ -27,12 +36,35 @@ function addBookToLibrary(newBook){
 
 }
 
-function displayLibrary(){
-    
-     
-}
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 
 console.log(theHobbit.info());
 console.log(myLibrary[0]);
+
+function displayBook(){
+    const libraryDiv=document.getElementById("bookLibrary");
+    const bookDiv=document.createElement("div");
+    let bookName=document.createElement("h2");
+    bookName.innerHTML=(`${myLibrary[counter].title}`);
+    let bookAuthor=document.createElement("p");
+    bookAuthor.innerHTML=(`${myLibrary[counter].author}`);
+    let bookPages=document.createElement("p");
+    bookPages.innerHTML=(`${myLibrary[counter].pageNum}`);
+    let bookRead=document.createElement("p");
+    
+    if (myLibrary[counter].read===true){
+        bookRead.innerHTML=("Have read");
+    }
+
+    else{
+        bookRead.innerHTML=("Have not read");
+    }
+    
+    bookDiv.className="bookDiv";
+    libraryDiv.appendChild(bookDiv);
+    bookDiv.append(bookName,bookAuthor,bookPages,bookRead);
+
+
+
+     
+}
