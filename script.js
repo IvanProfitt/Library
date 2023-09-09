@@ -68,3 +68,18 @@ function displayBook(){
 
      
 }
+
+const revealForm = document.getElementById('test');
+const bookForm = document.getElementById("bookDialog");
+const submitButton=document.getElementById("SubmitButton");
+
+revealForm.addEventListener("click", ()=>{
+    bookForm.showModal();
+} )
+
+submitButton.addEventListener("click", ()=>{
+    bookForm.classList.remove("reveal");
+    bookForm.classList.add("hide");
+
+} )
+

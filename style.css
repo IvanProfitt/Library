@@ -14,3 +14,21 @@
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
 }
 
+
+.bookDialog{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.formQuestions{
+    width:300px;
+    background-color: azure;
+    padding:25px;
+}
+
+.hide{
+    visibility: hidden;
+}
+
