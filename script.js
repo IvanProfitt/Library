@@ -35,7 +35,18 @@ function addBookToLibrary(newBook){
 
 }
 
+function removeBook(indexNum){
+    const elements = document.getElementsByClassName("ref"+indexNum);
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
 
+
+
+
+    myLibrary[indexNum].remove();
+
+}
 
 
 function displayBook(){
@@ -56,8 +67,16 @@ function displayBook(){
     else{
         bookRead.innerHTML=("Have not read");
     }
+
+
+    bookDiv.classList.add("ref"+counter);
+    bookPages.classList.add("ref"+counter);
+    bookName.classList.add("ref"+counter);
+    bookAuthor.classList.add("ref"+counter);
+    bookRead.classList.add("ref"+counter);
     
     bookDiv.className="bookDiv";
+    bookDiv.classList.add("ref"+counter);
     libraryDiv.appendChild(bookDiv);
     bookDiv.append(bookName,bookAuthor,bookPages,bookRead);
 
@@ -78,7 +97,7 @@ revealForm.addEventListener("click", ()=>{
 })
 
 bookForm.addEventListener("click", ()=>{
-    if (event.target === this) {
+    if (event.target === bookForm) {
     bookForm.classList.remove("show");
     bookForm.classList.add("hide");
     }

@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 </head>
 <body>
     <header>
         <h1>Your Personal Library</h1>
     </header>
-    <div class="bookLibrary" id="bookLibrary">
+    <div class="mainContent">
+        <div class="bookLibrary" id="bookLibrary">
+            
+
         
-        <div class="inputDiv">
-            <input type="button" value="+" id="test">
         </div>
-    
+
+        <div class="sidebar">
+            <div class="buttonDiv">
+                <input type="button" value="+" id="test">
+                <input type="button" value="remove" id="remove" onclick="removeBook(0);">
+            </div>
+        </div>
     </div>
 <div class="formModal hide" id="formModal">
     

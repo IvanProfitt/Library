@@ -1,21 +1,59 @@
-body{
-    background-color: #BFAB73;
+html{
+    height:100%;
 }
 
+body{
+    background-color: #ECE5E6;
+    padding:0;
+    height:100%;
+    margin:0;
+}
+header{
+    height:7%;
+    background-color:  #EEBA4C;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.mainContent{
+    display:flex;
+    width: 100%;
+    height:93%;
+}
+
+
+.sidebar{
+    float:right;
+    background-color: blue;
+    display: flex;
+    width: 20%;
+    height:100%;
+    justify-content: center;
+
+
+}
+
+
+
 .bookLibrary{
+    width: 80%;
+    float:left;
     display: grid;
     grid-template-columns: repeat(5,3fr);
     gap:20px;
     
 }
-.inputDiv{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
+
+
 input[type=button]{
     height: 200px;
     width: 200px;
+}
+.buttonDiv{
+    padding:20px;
+
 }
 header{
     display: flex;
@@ -26,14 +64,16 @@ h2{
     align-self:center;
 }
 .bookDiv{
+    max-height:250px;
     display: flex;
     flex-direction: column;
+    margin:15px;
     padding:15px;
-    background-color: #A87243;
+    background-color:  #D4C2FA;
     -webkit-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
-    border-radius: 15px;;
+    border-radius: 15px;
 }
 
 
