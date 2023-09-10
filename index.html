@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 </head>
 <body>
+    <header>
+        <h1>Your Personal Library</h1>
+    </header>
     <div class="bookLibrary" id="bookLibrary">
-
-        <div class="bookDiv">
-            <h2 class="bookTitle">Lord of the Rings</h2>
-            <p class="authorName">J.R.R. Tolkien</p>
-            <p class="numPages">6969 Pages</p>
-            <p class="readStatus">Have read</p>
-        </div>
         
+        <div class="inputDiv">
+            <input type="button" value="+" id="test">
+        </div>
+    
     </div>
 <div class="formModal hide" id="formModal">
     
     <div class="formQuestions">
-        <form class="bookForm">
+        <form class="bookForm" id="bookForm">
             <div>
                 <label for="formtTitle">Book Title:</label>
                 <input type="text" class="text" name="formTitle" id="formTitle" required>
@@ -31,7 +35,7 @@
             </div>
             <div>
                 <label for="formPages">Number of Pages:</label>
-                <input type="text" class="text" name="formPages" id="formPages" required>
+                <input type="number" class="text" name="formPages" id="formPages" required>
             </div>
             <div>
                 <label for="formRead">Have You Read?</label>
@@ -44,8 +48,7 @@
 
 </div>
 
-    <input type="button" value="Test" id="test">
-    
+
 </body>
 <script src="script.js"></script>
 </html>

@@ -1,17 +1,39 @@
+body{
+    background-color: #BFAB73;
+}
+
 .bookLibrary{
     display: grid;
     grid-template-columns: repeat(5,3fr);
     gap:20px;
     
 }
+.inputDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input[type=button]{
+    height: 200px;
+    width: 200px;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h2{
+    align-self:center;
+}
 .bookDiv{
     display: flex;
     flex-direction: column;
     padding:15px;
-    background-color: #d3d3d3;
+    background-color: #A87243;
     -webkit-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
+    border-radius: 15px;;
 }
 
 
@@ -37,5 +59,19 @@
 .show{
     transition:opacity .3s ease, visibility .3s ease;
     opacity:1;
+}
+
+.formModal{
+    display: flex;
+    position:fixed;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.5);
+    
 }
 

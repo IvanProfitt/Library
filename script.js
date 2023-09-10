@@ -1,6 +1,5 @@
 const myLibrary=[];
 let counter=0;
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 
 
 function Book(title, author, pageNum, read) {
@@ -38,8 +37,6 @@ function addBookToLibrary(newBook){
 
 
 
-console.log(theHobbit.info());
-console.log(myLibrary[0]);
 
 function displayBook(){
     const libraryDiv=document.getElementById("bookLibrary");
@@ -80,7 +77,15 @@ revealForm.addEventListener("click", ()=>{
     bookForm.classList.add("show");
 })
 
-submitButton.addEventListener("click", ()=>{
+bookForm.addEventListener("click", ()=>{
+    if (event.target === this) {
+    bookForm.classList.remove("show");
+    bookForm.classList.add("hide");
+    }
+
+})
+
+formForBook.addEventListener("submit", ()=>{
     bookForm.classList.toggle('transition');
     event.preventDefault();
 
