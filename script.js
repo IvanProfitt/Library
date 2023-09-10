@@ -76,9 +76,21 @@ const submitButton=document.getElementById("submitButton");
 
 revealForm.addEventListener("click", ()=>{
     bookForm.classList.remove("hide");
-} )
+    bookForm.classList.toggle('transition');
+    bookForm.classList.add("show");
+})
 
-formForBook.addEventListener("submit", ()=>{
+submitButton.addEventListener("click", ()=>{
+    bookForm.classList.toggle('transition');
+    event.preventDefault();
+
+    var value1 = document.getElementById('formTitle').value;
+    var value2 = document.getElementById('formAuthor').value;
+    var value3 = document.getElementById('formPages').value;
+    var value4 = document.getElementById('formRead').checked;
+    formForBook.reset();
+    const bookInitialization= new Book(value1,value2,value3,value4);
+    bookForm.classList.remove("show");
     bookForm.classList.add("hide");
 
 } )

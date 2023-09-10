@@ -29,6 +29,13 @@
 }
 
 .hide{
+    transition:opacity .3s ease, visibility .3s ease;
+    opacity:0;
     visibility: hidden;
+}
+
+.show{
+    transition:opacity .3s ease, visibility .3s ease;
+    opacity:1;
 }
 
