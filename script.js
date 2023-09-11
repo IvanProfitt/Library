@@ -1,5 +1,11 @@
 const myLibrary=[];
-let counter=0;
+const domLibrary=[];
+const libraryDiv=document.getElementById("bookLibrary");
+const revealForm = document.getElementById('test');
+const bookForm = document.getElementById("formModal");
+const formForBook = document.getElementById("bookForm");
+const submitButton=document.getElementById("submitButton");
+const delButton=document.getElementById("delButton");
 
 
 function Book(title, author, pageNum, read) {
@@ -7,60 +13,43 @@ function Book(title, author, pageNum, read) {
     this.author=author;
     this.pageNum=pageNum;
     this.read=read;
-
-
-    function returnTitle(){
-        return this.title;
-    }
-
-
-    this.info=function(){
-        if(this.read===true){
-        return (this.title + " by " + this.author + ", " + this.pageNum + " pages, already read!");
-        }
-        else{
-            return (this.title + " by " + this.author + ", " + this.pageNum + " pages, not read yet.");
-            
-        }
-
-    }
-    addBookToLibrary(this);
-    displayBook();
-    counter=counter+1;
+    
+    addBookToLibrary(this, myLibrary.length);
 }
 
-function addBookToLibrary(newBook){
+
+
+
+function addBookToLibrary(newBook,index){
     myLibrary.push(newBook);
-
-
+    displayBook(index);
 }
+
 
 function removeBook(indexNum){
-    const elements = document.getElementsByClassName("ref"+indexNum);
-    while(elements.length > 0){
-        elements[0].parentNode.removeChild(elements[0]);
-    }
-
-
-
-
-    myLibrary[indexNum].remove();
-
+    const delBook =document.getElementById(`book-${indexNum}`);
+    delBook.parentNode.removeChild(delBook);
+    myLibrary.splice(indexNum, 1);
 }
 
 
-function displayBook(){
-    const libraryDiv=document.getElementById("bookLibrary");
+
+
+function displayBook(index){
     const bookDiv=document.createElement("div");
+
     let bookName=document.createElement("h2");
-    bookName.innerHTML=(`${myLibrary[counter].title}`);
-    let bookAuthor=document.createElement("p");
-    bookAuthor.innerHTML=(`${myLibrary[counter].author}`);
-    let bookPages=document.createElement("p");
-    bookPages.innerHTML=(`${myLibrary[counter].pageNum}`);
-    let bookRead=document.createElement("p");
+    bookName.innerHTML=(`${myLibrary[index].title}`);
     
-    if (myLibrary[counter].read===true){
+
+    let bookAuthor=document.createElement("p");
+    bookAuthor.innerHTML=(`${myLibrary[index].author}`);
+
+    let bookPages=document.createElement("p");
+    bookPages.innerHTML=(`${myLibrary[index].pageNum}`);
+
+    let bookRead=document.createElement("p");
+    if (myLibrary.read===true){
         bookRead.innerHTML=("Have read");
     }
 
@@ -68,27 +57,30 @@ function displayBook(){
         bookRead.innerHTML=("Have not read");
     }
 
+    let removeButton = document.createElement("input");
+    removeButton.setAttribute("type", "button");
+    removeButton.setAttribute("onclick", `removeBook(${index});`);
+    console.log(myLibrary);
+    removeButton.setAttribute("value","Remove");
 
-    bookDiv.classList.add("ref"+counter);
-    bookPages.classList.add("ref"+counter);
-    bookName.classList.add("ref"+counter);
-    bookAuthor.classList.add("ref"+counter);
-    bookRead.classList.add("ref"+counter);
+
+
     
     bookDiv.className="bookDiv";
-    bookDiv.classList.add("ref"+counter);
+    bookDiv.id=`book-${index}`;
     libraryDiv.appendChild(bookDiv);
-    bookDiv.append(bookName,bookAuthor,bookPages,bookRead);
+    bookDiv.append(bookName,bookAuthor,bookPages,bookRead,removeButton);
 
 
 
      
 }
 
-const revealForm = document.getElementById('test');
-const bookForm = document.getElementById("formModal");
-const formForBook = document.getElementById("bookForm");
-const submitButton=document.getElementById("submitButton");
+
+
+
+
+
 
 revealForm.addEventListener("click", ()=>{
     bookForm.classList.remove("hide");
@@ -113,7 +105,7 @@ formForBook.addEventListener("submit", ()=>{
     var value3 = document.getElementById('formPages').value;
     var value4 = document.getElementById('formRead').checked;
     formForBook.reset();
-    const bookInitialization= new Book(value1,value2,value3,value4);
+    const bookInitialization = new Book(value1,value2,value3,value4);
     bookForm.classList.remove("show");
     bookForm.classList.add("hide");
 
