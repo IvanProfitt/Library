@@ -1,8 +1,14 @@
+@font-face {
+    font-family: "Bodoni";
+    src: url(fonts/Quicksand-VariableFont_wght.ttf);
+}
+
 html{
     height:100%;
 }
 
 body{
+    font-family: "Bodoni";
     background-color: #D6CCC2;
     padding:0;
     height:100%;

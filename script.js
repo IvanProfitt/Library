@@ -13,6 +13,8 @@ function Book(title, author, pageNum, read) {
     this.author=author;
     this.pageNum=pageNum;
     this.read=read;
+
+    console.log(read);
     
     addBookToLibrary(this, myLibrary.length);
 }
@@ -49,7 +51,7 @@ function displayBook(index){
     bookPages.innerHTML=(`${myLibrary[index].pageNum}`);
 
     let bookRead=document.createElement("p");
-    if (myLibrary.read===true){
+    if (myLibrary[index].read===true){
         bookRead.innerHTML=("Have read");
     }
 
