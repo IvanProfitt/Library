@@ -9,7 +9,7 @@ html{
 
 body{
     font-family: "Bodoni";
-    background-color: #d5bdaf;
+    background-color: #d3d3d3;
     padding:0;
     height:100%;
     margin:0;
@@ -36,8 +36,6 @@ header{
 
 
 }
-
-
 .addBook{
     background-image:url(images/plus.svg);
     height:50px;
@@ -51,15 +49,75 @@ header{
     background-color: grey;
 }
 
+input, label {
+    display:block;
+
+}
+
+label{
+    padding:5px;
+    color:#fffff0;
+}
+
+
+.submitButton{
+
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer; 
+    align-self: center;
+    transition: background-color 0.3s;
+}
+
+
+.bookButton{
+    background-color: #c0d3de; /* Button color */
+  color: #fff; /* Text color */
+  border: 0px;
+  margin:10px; /* Remove default border */
+  padding: 10px 20px; /* Adjust padding for better appearance */
+  font-size: 16px; /* Font size */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Show pointer cursor on hover */
+  margin-right: 10px; /* Add some space between buttons */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s;
+
+}
+
+.bookButton:hover {
+    background-color: #dec0c4; /* Darker color on hover */
+  }
+
+button:hover{
+    background-color: #77dd77;
+
+}
+
 
 .bookLibrary{
-    width: 80%;
-    float:left;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min-content, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap:20px;
     
 }
+
+.bookDiv{
+    display: flex;
+    min-width: 250px;
+    width:fit-content;
+    flex-direction: column;
+    margin:15px;
+    padding:15px;
+    background-color:  #afc7d5;
+    -webkit-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
+    border-radius: 15px;
+}
+
 
 
 
@@ -76,24 +134,8 @@ header{
 h2{
     align-self:center;
 }
-.bookDiv{
-    display: flex;
-    min-width: 250px;
-    width:fit-content;
-    flex-direction: column;
-    margin:15px;
-    padding:15px;
-    background-color:  #FFD95A;
-    -webkit-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
-    -moz-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
-    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
-    border-radius: 15px;
-}
 
-input, label {
-    display:block;
 
-}
 
 .formQuestions{
     display: flex;
@@ -101,20 +143,48 @@ input, label {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background-color: #836953 ;
+    background-color: #001f3f ;
     padding:25px;
+    -webkit-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
 }
 
 .formQuestions input{
-    padding:10px;
-    border:none;
-    height:20px;
+    width: 100%; 
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
     transition: background-color 0.3s;
 }
 
 .formQuestions input:focus{
     background-color: #d3d3d3;
 }
+.checkDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    align-self: center;
+    width: 25px; /* Adjust the size of the checkbox */
+    height: 25px; /* Adjust the size of the checkbox */
+    margin-right: 5px; /* Add some space between the checkbox and label */
+    transition: accent-color 0.3s;
+  }
+
+  input[type="checkbox"]:checked {
+    accent-color: #77dd77;
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 3px; /* Rounded corners */
+
+
+  }
 
 
 .hide{
@@ -140,5 +210,22 @@ input, label {
     z-index: 999;
     background: rgba(0, 0, 0, 0.5);
     
+}
+
+
+footer{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    height: 75px;
+    align-items: center;
+    justify-content: center;
+}
+.gitHub{
+    padding-left:20px;
+    height:50px;
+    width:50px;
+    border: none;
 }
 

@@ -34,7 +34,6 @@ function removeBook(indexNum){
     const delBook =document.getElementById(`book-${indexNum}`);
     delBook.parentNode.removeChild(delBook);
     myLibrary[indexNum]=undefined;
-    counter-=1;
 }
 
 function changeReadStatus(indexNum){
@@ -52,7 +51,7 @@ function changeReadStatus(indexNum){
 
 
 
-function displayBook(index){
+function displayBook(index, reference){
     const bookDiv=document.createElement("div");
 
     let bookName=document.createElement("h2");
@@ -77,12 +76,14 @@ function displayBook(index){
     removeButton.setAttribute("type", "button");
     removeButton.setAttribute("onclick", `removeBook(${index});`);
     removeButton.setAttribute("value","Remove");
+    removeButton.classList.add("bookButton");
 
 
     let readButton=document.createElement("input");
     readButton.setAttribute("type","button");
     readButton.setAttribute("onclick",`changeReadStatus(${index})`);
     readButton.setAttribute("value","Read?");
+    readButton.classList.add("bookButton");
 
 
 
@@ -133,4 +134,3 @@ formForBook.addEventListener("submit", ()=>{
     bookForm.classList.add("hide");
 
 } )
-
