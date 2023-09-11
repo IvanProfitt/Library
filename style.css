@@ -9,7 +9,7 @@ html{
 
 body{
     font-family: "Bodoni";
-    background-color: #D6CCC2;
+    background-color: #d5bdaf;
     padding:0;
     height:100%;
     margin:0;
@@ -29,7 +29,7 @@ header{
 
 
 .bookInput{
-    background-color: #d5bdaf;
+    padding:20px;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -38,28 +38,38 @@ header{
 }
 
 
+.addBook{
+    background-image:url(images/plus.svg);
+    height:50px;
+    width: 50px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s; 
+}
+
+.addBook:hover{
+    background-color: grey;
+}
+
 
 .bookLibrary{
     width: 80%;
     float:left;
     display: grid;
-    grid-template-columns: repeat(5,3fr);
+    grid-template-columns: repeat(auto-fill, minmax(min-content, 1fr));
     gap:20px;
     
 }
 
 
 
-input[type=button]{
-    height: 100px;
-    width: 100px;
-}
 .buttonDiv{
     padding:20px;
 
 }
 header{
     display: flex;
+    height:fit-content;
     align-items: center;
     justify-content: center;
 }
@@ -67,31 +77,45 @@ h2{
     align-self:center;
 }
 .bookDiv{
-    max-height:250px;
     display: flex;
+    min-width: 250px;
+    width:fit-content;
     flex-direction: column;
     margin:15px;
     padding:15px;
-    background-color:  #D4C2FA;
+    background-color:  #FFD95A;
     -webkit-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
     border-radius: 15px;
 }
 
+input, label {
+    display:block;
 
-.bookDialog{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
 }
 
 .formQuestions{
-    width:300px;
-    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #836953 ;
     padding:25px;
 }
+
+.formQuestions input{
+    padding:10px;
+    border:none;
+    height:20px;
+    transition: background-color 0.3s;
+}
+
+.formQuestions input:focus{
+    background-color: #d3d3d3;
+}
+
 
 .hide{
     transition:opacity .3s ease, visibility .3s ease;

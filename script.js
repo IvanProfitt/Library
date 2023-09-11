@@ -1,5 +1,5 @@
 const myLibrary=[];
-const domLibrary=[];
+let counter=0;
 const libraryDiv=document.getElementById("bookLibrary");
 const revealForm = document.getElementById('test');
 const bookForm = document.getElementById("formModal");
@@ -13,10 +13,12 @@ function Book(title, author, pageNum, read) {
     this.author=author;
     this.pageNum=pageNum;
     this.read=read;
+    this.index=myLibrary.length;
 
     console.log(read);
     
-    addBookToLibrary(this, myLibrary.length);
+    addBookToLibrary(this, counter);
+    counter+=1;
 }
 
 
@@ -31,7 +33,20 @@ function addBookToLibrary(newBook,index){
 function removeBook(indexNum){
     const delBook =document.getElementById(`book-${indexNum}`);
     delBook.parentNode.removeChild(delBook);
-    myLibrary.splice(indexNum, 1);
+    myLibrary[indexNum]=undefined;
+    counter-=1;
+}
+
+function changeReadStatus(indexNum){
+    myLibrary[indexNum].read=!(myLibrary[indexNum].read);
+    const bookReadStatus=document.getElementById(`read-${indexNum}`);
+    if (myLibrary[indexNum].read===true){
+        bookReadStatus.innerHTML=("Have read");
+    }
+
+    else{
+        bookReadStatus.innerHTML=("Have not read");
+    }
 }
 
 
@@ -58,20 +73,26 @@ function displayBook(index){
     else{
         bookRead.innerHTML=("Have not read");
     }
-
     let removeButton = document.createElement("input");
     removeButton.setAttribute("type", "button");
     removeButton.setAttribute("onclick", `removeBook(${index});`);
-    console.log(myLibrary);
     removeButton.setAttribute("value","Remove");
+
+
+    let readButton=document.createElement("input");
+    readButton.setAttribute("type","button");
+    readButton.setAttribute("onclick",`changeReadStatus(${index})`);
+    readButton.setAttribute("value","Read?");
+
 
 
 
     
     bookDiv.className="bookDiv";
     bookDiv.id=`book-${index}`;
+    bookRead.id=`read-${index}`;
     libraryDiv.appendChild(bookDiv);
-    bookDiv.append(bookName,bookAuthor,bookPages,bookRead,removeButton);
+    bookDiv.append(bookName,bookAuthor,bookPages,bookRead,removeButton, readButton);
 
 
 
